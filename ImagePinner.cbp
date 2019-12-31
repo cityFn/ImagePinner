@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ImagePinner" />
+		<Option pch_mode="2" />
+		<Option compiler="tdm_gcc_481_sdl2_compiler" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/ImagePinner" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="tdm_gcc_481_sdl2_compiler" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/ImagePinner" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="tdm_gcc_481_sdl2_compiler" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-std=c++11" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="$(#sdl2.include)" />
+			<Add directory="$(#sdl2_dev_lib.include)" />
+		</Compiler>
+		<Linker>
+			<Add option="-lSDL2_image -lSDL2" />
+			<Add library="mingw32" />
+			<Add library="SDL2main" />
+			<Add library="SDL2.dll" />
+			<Add library="user32" />
+			<Add library="gdi32" />
+			<Add library="winmm" />
+			<Add library="dxguid" />
+			<Add directory="$(#sdl2.lib)" />
+			<Add directory="$(#sdl2_dev_lib.lib)" />
+		</Linker>
+		<ExtraCommands>
+			<Add after="cmd /c xcopy $(#sdl2)\bin\*.dll $(TARGET_OUTPUT_DIR) /D /Y" />
+			<Add after="cmd /c xcopy /D /Y $(#sdl2_dev_lib)\bin\*.dlll $(TARGET_OUTPUT_DIR)" />
+		</ExtraCommands>
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
