@@ -1,0 +1,2 @@
+maxWidth=600
+file=animieTest.jpg
